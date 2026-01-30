@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: twickbackend
+      POSTGRES_PASSWORD: "_3xxNCmz-SAKKGFtxdEX5h-KIS2gpHm2"
+    volumes:
+      - twickbackend_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "5pkS_wRO_B_o6ccviTlgCtOfzlxC_TvH"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: twickbackend_test
+      POSTGRES_PASSWORD: "u9IdEOK4P7io5iQepTiFNa02WSqsTLft"
+    volumes:
+      - twickbackend_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "cGQVUmqAR-fFQzix8KSVy07Et7CO9VnE"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  twickbackend_data:
+  twickbackend_test_data:

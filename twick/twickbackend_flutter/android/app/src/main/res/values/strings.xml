@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google Sign-In: Replace with your Android OAuth 2.0 Client ID from Google Cloud Console -->
+    <string name="default_web_client_id">YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,33 @@
+appleIdp:
+  - login:
+emailIdp:
+  - login:
+  - startRegistration:
+  - verifyRegistrationCode:
+  - finishRegistration:
+  - startPasswordReset:
+  - verifyPasswordResetCode:
+  - finishPasswordReset:
+googleIdp:
+  - login:
+jwtRefresh:
+  - refreshAccessToken:
+account:
+  - deleteAccount:
+category:
+  - getCategories:
+  - saveCategory:
+  - saveCategories:
+  - deleteCategory:
+task:
+  - getTasks:
+  - saveTask:
+  - saveTasks:
+  - deleteTask:
+  - deleteTasks:
+userSettings:
+  - getSettings:
+  - saveSettings:
+  - deleteSettings:
+greeting:
+  - hello:

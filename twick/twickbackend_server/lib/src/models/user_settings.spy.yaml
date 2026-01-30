@@ -1,0 +1,28 @@
+# UserSettings model for storing user preferences in the database
+class: UserSettings
+table: user_settings
+
+fields:
+  ### The authenticated user these settings belong to
+  authUserId: UuidValue
+  ### Whether notifications are enabled
+  notificationsEnabled: bool
+  ### Whether sleep mode is enabled
+  sleepModeEnabled: bool
+  ### Sleep mode start hour (0-23)
+  sleepModeFromHour: int
+  ### Sleep mode start minute (0-59)
+  sleepModeFromMinute: int
+  ### Sleep mode end hour (0-23)
+  sleepModeToHour: int
+  ### Sleep mode end minute (0-59)
+  sleepModeToMinute: int
+  ### When the settings were created
+  createdAt: DateTime
+  ### When the settings were last updated
+  updatedAt: DateTime
+
+indexes:
+  user_settings_auth_user_id_idx:
+    fields: authUserId
+    unique: true

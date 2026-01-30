@@ -1,0 +1,42 @@
+# Task model for storing user tasks in the database
+class: Task
+table: task
+
+fields:
+  ### The unique identifier for the task (using client-side ID as string)
+  clientId: String
+  ### The authenticated user who owns this task
+  authUserId: UuidValue
+  ### The title of the task
+  title: String
+  ### When the task is scheduled
+  scheduledTime: DateTime
+  ### Whether the task is completed
+  isCompleted: bool
+  ### The priority level (low, medium, high)
+  priority: String
+  ### The category ID this task belongs to
+  categoryId: String?
+  ### Whether to play sound when notification triggers
+  playSound: bool
+  ### Whether this task repeats
+  isRecurring: bool
+  ### Type of recurring interval (minutes, hours, daily, weekly)
+  recurringIntervalType: String?
+  ### Duration for the recurring interval
+  recurringDuration: int
+  ### When the task was created
+  createdAt: DateTime
+  ### When the task was last updated
+  updatedAt: DateTime
+
+indexes:
+  task_auth_user_id_idx:
+    fields: authUserId
+  task_auth_user_completed_idx:
+    fields: authUserId, isCompleted
+  task_auth_user_scheduled_idx:
+    fields: authUserId, scheduledTime
+  task_auth_user_client_id_idx:
+    fields: authUserId, clientId
+    unique: true

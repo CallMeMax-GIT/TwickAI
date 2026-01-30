@@ -1,0 +1,26 @@
+# TaskCategory model for storing user categories in the database
+class: TaskCategory
+table: task_category
+
+fields:
+  ### The unique identifier for the category (using client-side ID as string)
+  clientId: String
+  ### The authenticated user who owns this category
+  authUserId: UuidValue
+  ### The name of the category
+  name: String
+  ### The icon code point (MaterialIcons)
+  iconCodePoint: int
+  ### The color value (ARGB)
+  colorValue: int
+  ### When the category was created
+  createdAt: DateTime
+  ### When the category was last updated
+  updatedAt: DateTime
+
+indexes:
+  task_category_auth_user_id_idx:
+    fields: authUserId
+  task_category_auth_user_client_id_idx:
+    fields: authUserId, clientId
+    unique: true
